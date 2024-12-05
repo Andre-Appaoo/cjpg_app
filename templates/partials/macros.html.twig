@@ -1,0 +1,18 @@
+{% macro renderButton() %}
+    <div>
+        {{ form_widget(field, {
+            'attr': {
+                'data-action': dataAction,
+                'data-value': value,
+                'disabled': disabled
+            }
+        }) }}
+        <button type="button"
+                class="{{ cssClass }} peer-checked:bg-blue_euromillions peer-checked:text-white"
+                data-action="{{ dataAction }}"
+                data-value="{{ value }}"
+                {{ disabled ? 'disabled' : '' }}>
+            {{ value }}
+        </button>
+    </div>
+{% endmacro %}

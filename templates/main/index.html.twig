@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue!{% endblock %}
+
+{% block body %}
+    <turbo-frame id="main-section">
+        <section class="text-center">
+            <h1 class="my-4">Bienvenue sur<br> "{{ cjpgText }}"</h1>
+
+            <p class="mx-2 lg:mx-4 mb-6">
+                {{ cjpgAcronym }} est une plateforme conçue pour les passionnés ou les curieux de l'{{ euromillionsLink }} et du {{ lotoLink }}. Sans
+                inscription nécessaire, elle vous permet de satisfaire votre curiosité sur les tirages passés et de
+                découvrir si vos numéros préférés auraient été gagnants.
+            </p>
+            <p class="mx-2 lg:mx-4 mb-6">
+                Notre fonction de recherche de tirages vous donne la possibilité de consulter les tirages gagnants de
+                n'importe quelle date précédente. Ainsi, si vous cherchez à satisfaire votre curiosité, {{ cjpgAcronym }} est là pour
+                vous aider.
+            </p>
+            <p class="mx-2 lg:mx-4 mb-6">
+                Pour ceux qui aiment choisir leurs propres numéros, les grilles {{ euromillionsLink }} et {{ lotoLink }} vous offre
+                l'opportunité de recréer votre propre sélection. Vous pourrez ainsi voir si votre combinaison aurait été
+                gagnante dans le passé.
+            </p>
+            <p class="mx-2 lg:mx-4 mb-6">
+                {{ cjpgAcronym }} est plus qu'un simple outil de recherche de loterie, c'est une façon de revivre l'excitation des
+                tirages de l'{{ euromillionsLink }} et du {{ lotoLink }}, sans la déception de perdre. Nous travaillons constamment pour
+                améliorer notre plateforme et vous fournir la meilleure expérience possible. Nous tenons à souligner que
+                la loterie est un jeu de hasard, et il n'est pas possible de prédire les prochains tirages gagnants en se
+                basant sur ceux déjà passés. Chaque tirage est indépendant et offre les mêmes chances à tous les
+                numéros.
+            </p>
+            <p class="mx-2 lg:mx-4 mb-6">
+                Jouer à la loterie peut être une expérience excitante et amusante, mais il est important de le faire de
+                manière responsable. Si vous, ou une personne que vous connaissez, rencontrez des problèmes liés au jeu,
+                n'hésitez pas à chercher de l'aide. La dépendance aux jeux est une problématique sérieuse, et il existe
+                de nombreuses ressources disponibles pour vous aider.
+            </p>
+            <p class="mx-2 lg:mx-4 mb-6">
+                Plongez-vous dans le monde de l'{{ euromillionsLink }} et du {{ lotoLink }} comme jamais auparavant avec {{ cjpgAcronym }}. Nous sommes
+                impatients de vous aider à découvrir tous les "si seulement" des tirages passés.
+            </p>
+
+            <div>
+                {#{% if is_granted('IS_AUTHENTICATED_FULLY') == false %}
+            {% elseif is_granted('IS_AUTHENTICATED_FULLY') and app.user.verified == false %}
+            {% endif %}#}
+            </div>
+        </section>
+    </turbo-frame>
+{% endblock %}

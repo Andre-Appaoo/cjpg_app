@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profile{% endblock %}
+
+{% block body %}
+    <turbo-frame id="main-section">
+        <section class="text-center">
+            <h1 class="my-4">Mon profile</h1>
+
+            <section class="container text-left">
+                <h2 class="mb-6 underline">Mes infos:</h2>
+
+                <ul>
+                    <li>
+                        <p>Adresse email: <span class="font-bold">{{ userInfos.email }}</span></p>
+                    </li>
+                    <li>
+                        <p>Compte créer le: <span class="font-bold capitalize">{{ userInfos.createdAt|format_datetime('full', 'none') }}</span></p>
+                    </li>
+                </ul>
+            </section>
+
+            <div>
+                {% for myNumbers in userInfos.userDrawsEuromillions %}
+                    {{ dump(myNumbers) }}
+                {% endfor %}
+            </div>
+        </section>
+    </turbo-frame>
+{% endblock %}

@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+
+{% set cjpgText %}
+    {#<span class="text-blue_euromillions capitalize font-bold">combien</span> <span class="text-red_loto capitalize font-bold">j'ai</span> <span class="text-blue_loto capitalize font-bold">pas</span> <span class="text-gold_euromillions capitalize font-bold">gagner?</span>#}
+    <span class="capitalize font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue_euromillions via-red_loto via-blue_loto to-gold_euromillions">combien j'ai pas gagner?</span>
+{% endset %}
+
+{% set cjpgAcronym %}
+    {#<span class="text-blue_euromillions uppercase font-bold">c</span><span class="text-red_loto uppercase font-bold">j</span><span class="text-blue_loto uppercase font-bold">p</span><span class="text-gold_euromillions uppercase font-bold">g?</span>#}
+    <span class="uppercase font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue_euromillions via-red_loto via-blue_loto to-gold_euromillions">cjpg?</span>
+{% endset %}
+
+{% set euromillionsText %}
+    <span class="text-blue_euromillions uppercase font-bold">euromillions</span>
+{% endset %}
+
+{% set lotoText %}
+    <span class="text-blue_loto uppercase font-bold">loto</span>
+{% endset %}
+
+{% set euromillionsLink %}
+    <a href="{{ path('app_euromillions') }}" class="font-medium text-blue_euromillions underline hover:text-gold_euromillions">Euromillions</a>
+{% endset %}
+
+{% set lotoLink %}
+    <a href="#" class="font-medium text-blue_loto underline hover:text-red_loto">Loto</a>
+{% endset %}
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,9 +38,9 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="dark:bg-gray-900 dark:text-white">
         {% include 'partials/headerNav.html.twig' %}
-        <main>
+        <main class="pb-10">
             {% block body %}{% endblock %}
         </main>
     </body>

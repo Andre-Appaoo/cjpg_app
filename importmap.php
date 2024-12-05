@@ -25,4 +25,20 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'flowbite' => [
+        'version' => '2.3.0',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'flowbite/dist/flowbite.min.css' => [
+        'version' => '2.3.0',
+        'type' => 'css',
+    ],
+    'flowbite-datepicker' => [
+        'version' => '1.2.6',
+    ],
+    '@symfony/ux-live-component' => [
+        'path' => './vendor/symfony/ux-live-component/assets/dist/live_controller.js',
+    ],
 ];

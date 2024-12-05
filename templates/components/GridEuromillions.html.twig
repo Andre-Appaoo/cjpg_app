@@ -1,0 +1,77 @@
+<div {{ attributes }} class="w-fit my-5">
+    {{ form_start(form, {
+        'attr': {
+            'class': 'w-fit relative flex flex-col p-2 lg:text-md lg:shadow-lg lg:shadow-gold_euromillions lg:border rounded-lg',
+            'data-action': 'live#action:prevent',
+            'data-live-action-param': 'save'
+        }
+    }) }}
+    <div class="text-base lg:grid lg:grid-flow-col lg:auto-cols-max font-bold lg:justify-items-center lg:px-4">
+        <div class="flex flex-wrap mx-auto lg:col-start-1 lg:col-end-3 lg:grid lg:grid-cols-10 gap-4 lg:mr-5 mb-5 justify-items-center">
+            {% for checkboxBall in form.balls %}
+                {% set value = checkboxBall.vars.value %}
+                {% set ballsAttributes = {
+                    'class': 'peer sr-only absolute',
+                    'data-action': 'live#action',
+                    'data-live-action-param': this.toggleBallSelection(value),
+                    'data-model': 'selectedBalls[]'
+                } %}
+                {% if this.ballDisabled(value) %}
+                    {% set ballsAttributes = ballsAttributes|merge({'disabled': 'disabled'}) %}
+                {% endif %}
+                <div>
+                    {{ form_widget(checkboxBall, { 'attr': ballsAttributes }) }}
+                    {{ form_label(checkboxBall, null, {
+                        'label_attr': {
+                            'class': 'flex justify-center items-center w-20 leading-20 h-20 bg-white m-auto text-blue_euromillions rounded-full shadow-ball_shadow lg:w-14 lg:leading-14 lg:h-14 peer-checked:bg-blue_euromillions peer-checked:text-white'
+                        }
+                    }) }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="flex flex-wrap mx-auto lg:col-start-3 lg:grid lg:grid-cols-3 lg:content-between gap-4 lg:ml-5 mb-5 justify-items-center items-center">
+            {% for checkboxStar in form.stars %}
+                {% set value = checkboxStar.vars.value %}
+                {{ dump(this.isStarDisabled(value), this.toggleStarSelection(value)) }}
+                {% set starsAttributes = {
+                    'class': 'peer sr-only absolute',
+                    'data-action': 'live#action',
+                    'data-live-action-param': this.toggleStarSelection(value),
+                    'data-model': 'selectedStars[]'
+                } %}
+                {% if this.starDisabled(value) %}
+                    {% set starsAttributes = starsAttributes|merge({'disabled': 'disabled'}) %}
+                {% endif %}
+                <div>
+                    {{ form_widget(checkboxStar, { 'attr': starsAttributes }) }}
+                    {{ form_label(checkboxStar, null, {
+                        'label_attr': {
+                            'class': 'flex justify-center items-center w-20 leading-20 h-20 bg-white_star m-auto text-gold_euromillions pt-1 bg-no-repeat bg-contain lg:w-14 lg:leading-14 lg:h-14 peer-checked:bg-gold_star peer-checked:text-white'
+                        }
+                    }) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="absolute -right-16">
+        {{ form_row(form.reset, {
+            'attr': {
+                'class': 'bg-blue_euromillions hover:bg-gold_euromillions focus:outline-none focus:ring-4 focus:ring-black px-5 py-2.5 rounded-r-lg lg:border-s dark:focus:ring-white',
+                'data-action': 'live#action',
+                'data-live-action-param': 'resetSelection'
+            },
+            'label': '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1M6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/></svg>',
+            'label_html': true,
+        }) }}
+    </div>
+    <div class="flex flex-wrap justify-center lg:row-start-2 lg:items-center rounded-2xl">
+        {{ form_row(form.validate, {
+            'attr': {
+                'class': 'bg-blue_euromillions hover:bg-gold_euromillions focus:outline-none focus:ring-4 focus:ring-black rounded-full px-5 py-2.5 dark:focus:ring-white'
+            }
+        }) }}
+    </div>
+    {{ form_end(form) }}
+    {{ dump(selectedBalls) }}
+    {{ dump(selectedStars) }}
+</div>

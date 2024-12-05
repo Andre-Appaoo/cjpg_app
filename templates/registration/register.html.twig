@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+    <section class="container my-10 flex justify-center">
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Créer un compte
+                </h1>
+
+                {{ form_errors(registrationForm) }}
+
+                {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_label(registrationForm.plainPassword.first) }}
+                    <div class="flex mb-2">
+                        {{ form_widget(registrationForm.plainPassword.first) }}
+                    </div>
+                    {{ form_label(registrationForm.plainPassword.second) }}
+                    <div class="flex mb-2">
+                        {{ form_widget(registrationForm.plainPassword.second) }}
+                    </div>
+                    {{ form_row(registrationForm.agreeTerms) }}
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,1 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+.star {
+    background-image: url("../images/logos/white-star.png");
+}
+
+.star:checked {
+    background-image: url("../images/logos/gold-star.png");
+}

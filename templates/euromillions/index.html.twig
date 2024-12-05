@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique Euromillions{% endblock %}
+
+{% block body %}
+    <turbo-frame id="main-section">
+        <section class="text-center">
+            <h1 class="my-4">Historique {{ euromillionsText }}</h1>
+
+            {{ knp_pagination_render(drawsEuromillions) }}
+
+            <nav class="flex flex-wrap gap-4 my-4 justify-center">
+                {% for drawEuromillions in drawsEuromillions %}
+                    {{ component('CardDrawEuromillions', { drawEuromillions: drawEuromillions }) }}
+                {% endfor %}
+            </nav>
+
+            {{ knp_pagination_render(drawsEuromillions) }}
+        </section>
+    </turbo-frame>
+{% endblock %}
